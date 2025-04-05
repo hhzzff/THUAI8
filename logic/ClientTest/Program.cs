@@ -7,13 +7,19 @@ namespace ClientTest
     {
         public static Task Main(string[] args)
         {
-            // 从命令行参数解析 CharacterId 和 TeamId
-            if (!int.TryParse(args[0], out int characterId)) {
+            if (args.Length < 2)
+            {
+                Console.WriteLine("Please provide both CharacterId and TeamId as arguments.");
+                return Task.CompletedTask;
+            }
+            if (!int.TryParse(args[0], out int characterId))
+            {
                 Console.WriteLine("Invalid CharacterId. Please provide a valid integer.");
                 return Task.CompletedTask;
             }
 
-            if (!int.TryParse(args[1], out int teamId)) {
+            if (!int.TryParse(args[1], out int teamId))
+            {
                 Console.WriteLine("Invalid TeamId. Please provide a valid integer.");
                 return Task.CompletedTask;
             }
